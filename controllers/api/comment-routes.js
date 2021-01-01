@@ -7,16 +7,16 @@ router.get('/', (req, res) => {
     .catch(err => {
       console.log(err);
       res.status(500).json(err);
-    });s
+    });
 });
 
 router.post('/', (req, res) => {
-    
+    // expects {post_id: "Int", comment_text: "string"}
     if(req.session) {
       Comment.create({
         comment_text: req.body.comment_text,
         post_id: req.body.post_id,
-        user_id: req.session.user_id
+        user_id: 1 //req.session.user_id
       }).then(
         dbCommentData => res.json(dbCommentData)
       ).catch(
@@ -31,6 +31,7 @@ router.post('/', (req, res) => {
 });
 
 router.delete('/:id', (req, res) => {
+    
     Comment.destroy({
         where: {
         id: req.params.id
@@ -38,7 +39,7 @@ router.delete('/:id', (req, res) => {
     })
     .then(dbUserData => {
         if (!dbUserData) {
-          res.status(404).json({ message: 'No user found with this id' });
+          res.status(404).json({ message: 'No commetn found with this id' });
           return;
         }
         res.json(dbUserData);
