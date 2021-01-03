@@ -1,12 +1,14 @@
 
+<div class = "card">
     <article class="post card-body">
         <div class="title card-title">
             <a href="{{post_url}}" target="_blank">{{title}}</a>
 
         </div>
         <div class="meta">
-            {{user.username}} on {{ created_at}}
+            <p>By: {{user.username}} on {{created_at}}</p>
             |
             <a href="/post/{{id}}">{{comments.length}} {{comments.length}} jadda jadda</a>
         </div>
     </article>
+    </div>

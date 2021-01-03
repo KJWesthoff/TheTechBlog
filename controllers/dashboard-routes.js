@@ -12,14 +12,14 @@ router.get('/', withAuth, (req,res)=>{
         where:{
             user_id: req.session.user_id
         },
-        attributtes:[
+        attributes:[
             'id',
             'textbody',
             'title',
             'created_at',
         ],
         include: [
-           /*
+           
             {
                 model:Comment,
                 attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
@@ -28,7 +28,7 @@ router.get('/', withAuth, (req,res)=>{
                     attributes:['username']
                 }
             },
-            */
+            
             {
                 model: User,
                 attributes: ['username']
@@ -36,10 +36,11 @@ router.get('/', withAuth, (req,res)=>{
         ]
     }).then(dbPostData => {
         const posts = dbPostData.map(post => post.get({plain:true}));
-    
+        console.log(posts)
         res.render('dashboard', {
             posts,
-            loggedIn: req.session.loggedIn
+            loggedIn: req.session.loggedIn,
+            userName: req.session.username,
           });
 
 
@@ -59,11 +60,10 @@ router.get('/edit/:id', withAuth, (req, res) => {
         'id',
         'textbody', 
         'title',
-        'created_at',
-       
+        'created_at'    
       ],
       include: [
-        /*
+        
         {
           model: Comment,
           attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
@@ -73,7 +73,7 @@ router.get('/edit/:id', withAuth, (req, res) => {
           }
           
         },
-        */
+        
         {
           model: User,
           attributes: ['username']
