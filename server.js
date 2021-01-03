@@ -31,9 +31,17 @@ app.use(session(sess));
 const { response } = require('express');
 
 //const hbs = exphbs.create({ helpers });
+
+
 //app.engine('handlebars', hbs.engine);
-//app.engine('handlebars');
+// app.engine('handlebars');
 app.set('view engine', 'handlebars');
+
+
+app.engine('handlebars', exphbs({
+    layoutsDir: __dirname + '/views/layouts',
+    }));
+    
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -41,7 +49,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(require('./controllers/'));
 
-//app.use(require('./models/'));
+
 
 
 
