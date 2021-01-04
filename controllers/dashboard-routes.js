@@ -87,13 +87,17 @@ router.get('/edit/:id', withAuth, (req, res) => {
         }
 
         const post = dbPostData.get({ plain: true });
-
+        
+        console.log(post);
+       
         res.render('edit-post', {
         post,
         loggedIn: true
         });
+        
       })
       .catch(err => {
+        
         console.log(err);
         res.status(500).json(err);
       });

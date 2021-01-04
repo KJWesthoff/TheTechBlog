@@ -4,7 +4,7 @@ const session = require('express-session');
 const exphbs = require('express-handlebars');
 
 
-//const helpers = require('./utils/helpers');
+const helpers = require('./utils/helpers');
 
 
 
@@ -27,31 +27,19 @@ const sess = {
 
 app.use(session(sess));
 
-
 const { response } = require('express');
 
-//const hbs = exphbs.create({ helpers });
+const hbs = exphbs.create({ helpers });
 
+app.engine('handlebars', hbs.engine);
 
-//app.engine('handlebars', hbs.engine);
-// app.engine('handlebars');
 app.set('view engine', 'handlebars');
-
-
-app.engine('handlebars', exphbs({
-    layoutsDir: __dirname + '/views/layouts',
-    }));
-    
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(require('./controllers/'));
-
-
-
-
 
 sequelize.sync({ force: false}).then(() => {
   app.listen(PORT, () => console.log('Now listening'));
