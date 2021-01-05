@@ -35,7 +35,9 @@ router.get('/', (req, res) => {
         console.log(posts)
         res.render('startpage', {
           posts,
-          loggedIn: req.session.loggedIn
+          loggedIn: req.session.loggedIn,
+          userName: req.session.username,
+
         });
       })
       .catch(err => {
@@ -87,7 +89,8 @@ router.get('/post/:id', withAuth, (req, res) => {
      
       res.render('show-post', {
       post,
-      loggedIn: true
+      userName: req.session.username,
+      loggedIn: req.session.loggedIn,
       });
       
     })
@@ -120,7 +123,7 @@ router.get('/signin', (req, res) => {
       return;
     }
   
-    res.render('signup');
+    res.render('signin');
   });
 
 
