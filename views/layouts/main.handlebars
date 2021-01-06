@@ -13,22 +13,23 @@
     <header>
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
       <div class="container-fluid">
-          <a class="navbar-brand" href="/">The Tech Blog</a>
+         
+          <h1><span class = "badge bg-secondary">The Tech Blog</span></h1> 
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
           <div class="navbar-nav">
-
+          <a class="nav-link active" aria-current="page" href="/">Homepage</a>
           {{#if loggedIn}}
-              <a class="nav-link active" aria-current="page" href="/dashboard">dashboard</a>
+              <a class="nav-link active" aria-current="page" href="/dashboard">Dashboard</a>
               <a id="logout" class="nav-link active btn-no-style">logout</a>
               <a class="nav-link active"> Logged in as: {{userName}}</a>
           {{else}}
               <a class="nav-link active" aria-current="page" href="/signin">login</a>
           {{/if}}
 
-  
+          
           </div>
           </div>
       </div>
