@@ -10,7 +10,7 @@
       const password = document.querySelector('#password-login').value.trim();
     
       if (email && password) {
-        const response = await fetch('/api/users/login', {
+        const response = await fetch('/api/users/signin', {
           method: 'post',
           body: JSON.stringify({
             email,
