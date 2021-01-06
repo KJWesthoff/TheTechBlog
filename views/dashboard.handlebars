@@ -1,3 +1,5 @@
+<div class= "container mt-3">
+
 <section>
     <h2>Create New Post</h2>
 
@@ -13,8 +15,10 @@
         <button class="btn-primary btn mb-3" type ="submit" class ="btn">Create</button>
     </form>
 </section>
-
+</div>
 {{#if posts.length}}
+
+<div class = "container mt-3">
 <section>
   <h2>Your Posts</h2>
   <ulclass="post-list list-group">
@@ -27,6 +31,7 @@
     {{/each}}
   </ul>
 </section>
+</div>
 {{/if}}
 
 

@@ -123,7 +123,7 @@ router.get('/signin', (req, res) => {
       return;
     }
   
-    res.render('signin');
+    res.render('signup');
   });
 
 
