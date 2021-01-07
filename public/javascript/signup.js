@@ -18,10 +18,9 @@ async function signupFormHandler(event) {
 
       // check the response status
       if (response.ok) {
-          console.log('success');
-          // sing in the new user 
-          await fetch()      
-
+          //console.log('success');
+          // sign in the new user 
+          document.location.replace('/');
 
         } else {
           alert(response.statusText);
