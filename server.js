@@ -22,7 +22,7 @@ const sess = {
     httpOnly: true,
     expires: 60000
   },
-  resave: true,
+  resave: false,
   rolling: true,
   saveUninitialized: true,
   store: new SequelizeStore({
