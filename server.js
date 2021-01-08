@@ -20,6 +20,7 @@ const sess = {
     httpOnly: true
    
   },
+  secureProxy: true,
   resave: false,
   saveUninitialized: true,
   store: new SequelizeStore({
