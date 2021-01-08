@@ -19,10 +19,11 @@ const sess = {
   rolling:true,
   secureProxy: true,
   cookie: {
-    httpOnly: true
+    httpOnly: true,
+    expires: 60000
   },
- 
-  resave: false,
+  resave: true,
+  rolling: true,
   saveUninitialized: true,
   store: new SequelizeStore({
     db: sequelize
